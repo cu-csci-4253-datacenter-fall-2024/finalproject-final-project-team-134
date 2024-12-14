@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./credentials.json:/app/credentials.json
+      - ./wait-for-it.sh:/app/wait-for-it.sh   
+    depends_on:
+      - postgres
+    entrypoint: ["/app/wait-for-it.sh", "postgres", "--"]  # Add wait script before starting Flask
+    command: ["python", "app/main.py"]
+    environment:
+      - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://username:password@postgres:5432/db_name
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db_name
+    ports:
+      - "5432:5432"
+
