@@ -41,22 +41,6 @@ To run this project, you will need to have the following:
 4. Open http://localhost:5001/workshops/ to check the workshop data.
 5. Open http://localhost:5001 to view the homepage.
 
-## Interaction of Software and Hardware Components
-
-**UI**: Users interact with the platform via a web interface to explore and book workshops.
-
-**Data Storage and Processing**: Information about workshops, bookings, and user details is stored in PostgreSQL (managed by Docker) and processed for seamless operations.
-
-
-**Queue Management**: Google Cloud Pub/Sub ensures efficient handling of asynchronous tasks like sending notifications and booking confirmations.
-
-
-**Workshop Management**: Handles user requests to create, view, or book workshops by interacting with the database and responding through the REST API.
-
-
-**Containerization**: Docker is used to containerize the application, ensuring consistency and easy deployment across environments.
-
-
 
 ## File Structure
 
@@ -80,3 +64,20 @@ To run this project, you will need to have the following:
 ├── requirements.txt          # Python dependencies
 ├── wait-for-it.sh            # Script to wait for dependencies
 └── README.md                 # Project documentation
+```
+
+## Interaction of Software and Hardware Components
+
+**UI**: Users interact with the platform via a web interface to explore and book workshops.
+
+**Data Storage and Processing**: Information about workshops, bookings, and user details is stored in PostgreSQL (managed by Docker) and processed for seamless operations.
+
+
+**Queue Management**: Google Cloud Pub/Sub ensures efficient handling of asynchronous tasks like sending notifications and booking confirmations.
+
+
+**Workshop Management**: Handles user requests to create, view, or book workshops by interacting with the database and responding through the REST API.
+
+
+**Containerization**: Docker is used to containerize the application, ensuring consistency and easy deployment across environments.
+
